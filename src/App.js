@@ -6,7 +6,7 @@ import Header from "./components/Header"
 
 function App() {
 
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=7"
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=4"
   
   const [rawPokeData, setRawPokeData] = useState([])
   const [pokeData, setPokeData] = useState([])

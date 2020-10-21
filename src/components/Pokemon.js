@@ -1,17 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import "../App.css"
-
-
 
 const Pokemon = ({pokemon}) => {
 
     return (
-        <div 
-            className="pokemon"
-            // onMouseEnter={() => setShowData(false)}
-            // onMouseLeave={() => setShowData(true)}
-        >
+        <div className="pokemon">
             <div className="pokemon-inner">
                 <div className="pokemon-front"  >
                     <img className="image" src={pokemon.sprites.front_default} alt=""/>
@@ -22,8 +16,8 @@ const Pokemon = ({pokemon}) => {
                     ))}</ul>
                 </div>
                 <div className="pokemon-back">
-                        <p>{pokemon.height}</p>
-                        <p>{pokemon.weight}</p>
+                        <p className="heigth">Weight: {pokemon.height * 10}kg</p>
+                        <p className="weight">Height: {pokemon.weight / 10} cm</p>
                 </div>
             </div>
         </div>

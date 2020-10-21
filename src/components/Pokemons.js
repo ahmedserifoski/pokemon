@@ -8,14 +8,12 @@ const Pokemons = ({pokeData}) => {
    
 
     return (
-        <div className="pokemons">
-            {console.log(pokeData)}
+        <section className="pokemons">
+            {/* {console.log(pokeData)} */}
             {pokeData.map(pokemon => (
-                <Pokemon key={pokemon.id} pokemon={pokemon}/>
+                <Pokemon key={pokemon.id} pokemon={pokemon}></Pokemon>
             ))}
-            
-
-        </div>
+        </section>
     )
 }
 
