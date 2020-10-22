@@ -4,14 +4,22 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: "Pokemon Solid Normal";
+  src: url("./fonts/Pokemon\ Solid.woff") format("woff");
+}
+
 body {
-  height: 100vh;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: "Pokemon Solid Normal" ;
   line-height: 1.8em;
+  background: rgb(15, 15, 15);
 }
 
 .header {
   background: rgb(255, 58, 23);
-  color: white;
+  color: rgb(255, 230, 0);
   height: 5em;
   display: flex;
   align-items: center;
@@ -19,11 +27,10 @@ body {
 }
 
  .pokemons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1rem;
   padding: 1em;
 }
@@ -31,20 +38,20 @@ body {
 .pokemon {
   padding-bottom: 1em;
   margin: 1em;
-  border-radius: 5px;
-  /* -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5); */
+  border-radius: 10px;
+  border-right: 1px solid rgba(255, 196, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 196, 0, 0.5);
   background-color: transparent;
+  background: rgb(22, 22, 22);
   perspective: 1000px;
-  height: 250px;
+  height: 270px;
+  text-align: center;
+  font-family: 'Grandstander', cursive;
 }
 
 .pokemon-inner {
-  position: relative;
   width: 100%;
   height: 100%;
-  /* text-align: center; */
   transition: transform 0.6s;
   transform-style: preserve-3d;
   
@@ -57,42 +64,56 @@ body {
 
 .pokemon-front, 
 .pokemon-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0.5em;
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  
 }
 
 
 .pokemon-back {
   transform: rotateY(180deg);
+  font-size: 1rem;
+  line-height: 1.7em;
+  padding-top: 1em;
 }
 
 .name {
-  
   margin-top: 0.3em;
   margin-left: 1em;
+  color: whitesmoke;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .id {
   top: 100px;
   margin-left: 1em;
+  color: rgb(255, 196, 0);
+  align-self: flex-start;
+  margin-right: 1em;
 }
 
-.list {
-  padding-left: 2em;
+.list span {
+  color: rgb(255, 196, 0);
 }
 
 .image {
   width: 10em;
-  background: rgb(231, 231, 231);
-  
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.height, .weight {
-  position: absolute;
-  top: -110;
+.height, .weight, .base_experience, .stats {
+  color: rgb(255, 196, 0);
+}
+
+.inline {
+  display: inline;
 }
 

@@ -6,7 +6,7 @@ import Header from "./components/Header"
 
 function App() {
 
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=4"
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=20"
   
   const [rawPokeData, setRawPokeData] = useState([])
   const [pokeData, setPokeData] = useState([])
@@ -29,6 +29,7 @@ function App() {
   // console.log(rawPokeData)
 
   useEffect(() => {
+    // fetching actual data for each pokemon
     const fetchPokemonData = () => {
       rawPokeData.map(async(pokemon) => {
         const res = await fetch(pokemon.url)
@@ -36,11 +37,13 @@ function App() {
         // console.log(data)
         setPokeData(prevData => [...prevData, data])
       })
+      
     }
     fetchPokemonData()
-
+    // setPokeData((a, b) => a.id - b.id)
+    
   }, [rawPokeData])
-
+  console.log(pokeData)
   // console.log(pokeData)
 
   return (

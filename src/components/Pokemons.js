@@ -9,7 +9,7 @@ const Pokemons = ({pokeData}) => {
 
     return (
         <section className="pokemons">
-            {/* {console.log(pokeData)} */}
+            {console.log(pokeData)}
             {pokeData.map(pokemon => (
                 <Pokemon key={pokemon.id} pokemon={pokemon}></Pokemon>
             ))}
