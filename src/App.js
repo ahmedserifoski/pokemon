@@ -6,10 +6,11 @@ import Header from "./components/Header"
 
 function App() {
 
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=20"
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=201"
   
   const [rawPokeData, setRawPokeData] = useState([])
   const [pokeData, setPokeData] = useState([])
+  
   
   useEffect( () => {
 
@@ -26,26 +27,25 @@ function App() {
 
   }, [])
 
-  // console.log(rawPokeData)
-
   useEffect(() => {
-    // fetching actual data for each pokemon
-    const fetchPokemonData = () => {
-      rawPokeData.map(async(pokemon) => {
-        const res = await fetch(pokemon.url)
-        const data = await res.json()
-        // console.log(data)
-        setPokeData(prevData => [...prevData, data])
-      })
-      
+    
+    // fetching actual data for each pokemon one at a time
+    const fetchPokemonData = async () => {
+    
+      for(let i = 1; i < rawPokeData.length; i++) {
+                  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+                  const data = await res.json()
+                  setPokeData(prevData => [...prevData, data])
+                  console.log(pokeData)
+      }
+    
     }
+    // catually calling the function
     fetchPokemonData()
-    // setPokeData((a, b) => a.id - b.id)
     
   }, [rawPokeData])
-  console.log(pokeData)
-  // console.log(pokeData)
 
+  
   return (
     <div className="App">
       <Header />

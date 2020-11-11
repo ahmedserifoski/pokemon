@@ -9,7 +9,8 @@ const Pokemons = ({pokeData}) => {
 
     return (
         <section className="pokemons">
-            {console.log(pokeData)}
+            {/* {console.log(pokeData.sort((a, b) => pokeData[b] - pokeData[a]))} */}
+            {/* console.log(pokeData) */}
             {pokeData.map(pokemon => (
                 <Pokemon key={pokemon.id} pokemon={pokemon}></Pokemon>
             ))}
